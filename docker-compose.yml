@@ -15,4 +15,5 @@ services:
       context: .
       dockerfile: ./infra/dev/php/php.Dockerfile
     volumes:
+      - ./infra/dev/php/conf.d/php.ini:/usr/local/etc/php/conf.d/99-custom.ini
       - ./:/var/www/html

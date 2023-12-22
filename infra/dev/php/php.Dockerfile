@@ -120,6 +120,12 @@ RUN set -x \
     && pecl install redis \
     && docker-php-ext-enable redis
 
+# Install xdebug
+RUN set -x \
+    && apk add --no-cache pcre-dev ${PHPIZE_DEPS} \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
 RUN mkdir -p /var/www/html/public
 
 CMD ["php-fpm"]
