@@ -1,0 +1,12 @@
+version: '1.0.0'
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./infra/dev/nginx/nginx.Dockerfile
+    ports: 
+      - "80:80"
+    volumes:
+      # - ./infra/dev/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - ./:/var/www/html
+
