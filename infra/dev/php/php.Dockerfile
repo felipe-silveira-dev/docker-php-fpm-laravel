@@ -126,6 +126,11 @@ RUN set -x \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug
 
+# Install composer
+RUN set -x \
+    && curl -L https://getcomposer.org/composer.phar -o /usr/local/bin/composer \
+    && chmod +x /usr/local/bin/composer
+
 RUN mkdir -p /var/www/html/public
 
 CMD ["php-fpm"]

@@ -2,12 +2,12 @@
 
 function composer
 {
-    docker compose run app composer "$@"
+    docker compose run php composer "$@"
 }
 
 function artisan
 {
-    docker compose exec app php artisan "$@"
+    docker compose exec php php artisan "$@"
 }
 
 function clear
@@ -19,12 +19,12 @@ function clear
 
 function unit
 {
-    docker compose exec app /src/vendor/bin/pest tests/Unit "$@"
+    docker compose exec php /src/vendor/bin/pest tests/Unit "$@"
 }
 
 function feature
 {
-    docker compose exec app /src/vendor/bin/pest tests/Feature "$@"
+    docker compose exec php /src/vendor/bin/pest tests/Feature "$@"
 }
 
 function tests
@@ -34,12 +34,12 @@ function tests
 
 function bash
 {
-    docker compose exec app bash
+    docker compose exec php bash
 }
 
 function pest
 {
-    docker compose exec app /src/vendor/bin/pest "$@"
+    docker compose exec php /src/vendor/bin/pest "$@"
 }
 
 "$@"
