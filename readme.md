@@ -17,6 +17,27 @@
 
 ### Uma estrutura com docker para projetos laravel.
 
+Faça o download ou clone do repositorio e crie o projeto laravel dentro da pasta src
+![estrutura das pastas](image.png)
+
+### Configuração do projeto laravel
+```
+./console.sh composer install
+./console.sh php artisan key:generate
+
+#env
+DB_CONNECTION=pgsql
+DB_HOST=db
+DB_PORT=5432
+DB_DATABASE=postgres
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+
+./console.sh php artisan migrate
+```
+
+a infra de prod é a mesma de dev, mas com algumas configurações diferentes.
+
 ### utils
 ```
 chmod 777 console.sh
