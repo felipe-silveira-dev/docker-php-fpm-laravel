@@ -8,6 +8,7 @@ services:
       - "80:80"
     volumes:
       - ./infra/dev/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - ./infra/dev/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./:/var/www/html
   php:
     build:
