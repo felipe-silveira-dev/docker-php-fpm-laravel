@@ -17,3 +17,23 @@ services:
     volumes:
       - ./infra/dev/php/conf.d/php.ini:/usr/local/etc/php/conf.d/99-custom.ini
       - ./:/var/www/html
+    depends_on:
+      - db
+      - redis
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_DB: postgres
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+  mailpit:
+    image: axllent/mailpit
+    ports:
+      - "1025:1025"
+      - "8025:8025"
